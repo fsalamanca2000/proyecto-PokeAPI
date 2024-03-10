@@ -18,8 +18,13 @@ body{
     width: 50px;
     margin-top: 5px;
     border-radius: 50%;
-    margin-left: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
 }
 #activar img{
     width: 28px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }

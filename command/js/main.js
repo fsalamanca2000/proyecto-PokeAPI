@@ -5,7 +5,7 @@ document.querySelector("#activar").addEventListener('click', function(){
     console.log("estoy activado");
 });
 artyom.addCommands({
-    indexes: ["buscar","finalizar"],
+    indexes: ["buscar","shiny","finalizar"],
     action: function(i){
         if(i == 0){
             
@@ -21,6 +21,17 @@ artyom.addCommands({
             })
         }
         else if(i == 1) {
+            $.ajax({
+                url: "https://pokeapi.co/api/v2/pokemon/"+$("#txt-buscar").val(),
+                type: "GET",
+                //dataType: "json",
+                contentType: "application/json",
+                success: function (data) {
+                    console.log(data.sprites.other.home.front_default)
+                    $("#imagen_pokemon").html(`<img src="${data.sprites.other.home.front_shiny}">`)
+                }
+            })
+        }else if(i == 2){
             artyom.say("sonido desactivado");
             artyom.dontObey();
         }
