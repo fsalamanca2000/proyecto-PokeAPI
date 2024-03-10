@@ -1,2 +1,2 @@
 # proyecto-PokeAPI
-Using AJAX, JQuery and Artyom to search Pokemons with a API
+## You can search a lot of pictures about pokemons with it´s name (using text or your voice) 

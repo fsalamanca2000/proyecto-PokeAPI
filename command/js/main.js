@@ -2,18 +2,27 @@ var artyom = new Artyom();
 
 document.querySelector("#activar").addEventListener('click', function(){
     artyom.say("sonido activado");
+    console.log("estoy activado");
 });
-
 artyom.addCommands({
-    indexes: ["Hola","adios", "comando"],
+    indexes: ["buscar","finalizar"],
     action: function(i){
         if(i == 0){
-            artyom.say("saludo");
-        }else if(i == 1){
-            artyom.say("chao");
+            
+            $.ajax({
+                url: "https://pokeapi.co/api/v2/pokemon/"+$("#txt-buscar").val(),
+                type: "GET",
+                //dataType: "json",
+                contentType: "application/json",
+                success: function (data) {
+                    console.log(data.sprites.other.home.front_default)
+                    $("#imagen_pokemon").html(`<img src="${data.sprites.other.home.front_default}">`)
+                }
+            })
         }
-        else if(i == 2) {console.log("recibido");
-
+        else if(i == 1) {
+            artyom.say("sonido desactivado");
+            artyom.dontObey();
         }
     }
 });
